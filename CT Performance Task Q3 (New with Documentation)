@@ -1,0 +1,30 @@
+import turtle                      # Imports the turtle module
+
+sides = 8                          # You can have any sides you want, 8 is the set default
+default_side_distance = 100        # How long per side
+initial_angle = 360                # The geometric closure of every shape
+angle = initial_angle / sides      # this variable is the result if the initial_angle, divided by the number of sides, so it determines its very precise quotient to be used as an angle
+
+screen = turtle.Screen()           # a variable to make thing easier to edit the background
+screen.bgcolor("black")            # the background color is set at black in default
+
+shaper_editor = turtle.Turtle()    # a variable to make thing easier to edit the turtle
+shaper_editor.shape("arrow")       # to set what will be the visual representation of the cursor that draws the sides, arrow in default
+shaper_editor.color("#FFD700")     # the color of the lines which is draw, gold in default
+shaper_editor.fillcolor("#FFD700") # the color to be filled in the shape after drawing it's sides
+
+shaper_editor.penup() 
+shaper_editor.goto(-50, -50)       # positioning the shape on the screen, this position to put it at the center
+shaper_editor.pendown()
+
+shaper_editor.begin_fill()
+
+for _ in range(sides):
+    shaper_editor.forward(default_side_distance)
+    shaper_editor.left(angle)
+
+shaper_editor.hideturtle()
+
+shaper_editor.end_fill()
+
+turtle.done()
